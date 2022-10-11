@@ -3,13 +3,14 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  margin: 0 20px 0 20px;
+  height: 10vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 15s ease-out;
   }
 }
 
@@ -32,7 +33,66 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.input-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 6rem;
+}
+
+#message {
+  width: 30rem;
+  height: auto;
+  background-color: #3d434f;
+  border-radius: 10px;
+  border: 1px solid black;
+  color: white;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.algo-btn {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 20px;
+  background-color: #3d434f;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn-invisible {
+  height: 2rem;
+  cursor:auto;
+  background-color: #282c34;
+  border: none
+}
+
+.algo-btn:hover {
+  background-color: #646d7e;
+
+}
+
+.ouput-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.output {
+  width: 50rem;
+  height: auto;
+}
+
+.hasbulla {
+  width: 10rem;
+  margin-right: -1rem;
+  margin-bottom: -1rem;
+  z-index: 10;
 }
