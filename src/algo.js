@@ -23,7 +23,7 @@ function algo(input) {
 
         return ""
     }
-}
+} 
 
 function findAndAlgoWords(inputAsArray, algoLetters) {
     let secondAlgoWord = ''
