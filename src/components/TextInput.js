@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import hasbulla from '../images/has.png'
 import {
     GlobalStateContext,
@@ -7,12 +7,10 @@ import {
 } from "./GlobalState";
 
 const TextInput = () => {
-    const [message, setMessage] = useState('')
     const globalState = useContext(GlobalStateContext)
     const dispatch = useContext(GlobalDispatchContext)
 
     const handleChange = (e) => {
-        setMessage(e.target.value)
         dispatch({ type: SET_MESSAGE, payload: e.target.value })
     }
 
@@ -28,7 +26,6 @@ const TextInput = () => {
                     id="message"
                     name="message"
                     onChange={handleChange}
-                    value={message}
                 />
             </div>
         </>
