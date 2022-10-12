@@ -3,7 +3,7 @@ import dolan from './images/dolan.png'
 import gooby from './images/gooby.png'
 import trading from './images/trading.png'
 import hasbulla from './images/has.png'
-import algo from './algo';
+import algo from './utils/algo';
 import { useState } from 'react';
 import './App.css';
 
