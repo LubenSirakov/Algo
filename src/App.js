@@ -10,7 +10,7 @@ const initialState = {
   message: ''
 }
 
-function App(props) {
+function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   let newAlgoSenctence = algo(state.message)
