@@ -1,66 +1,30 @@
-import pepe from './images/pepe.png'
-import dolan from './images/dolan.png'
-import gooby from './images/gooby.png'
-import trading from './images/trading.png'
-import hasbulla from './images/has.png'
 import algo from './utils/algo';
-import { useState } from 'react';
+import { useReducer } from 'react';
 import './App.css';
+import SpinningImages from './components/SpiningImages'
+import TextInput from './components/TextInput';
+import OutputAlgo from './components/OutputAlgo';
+import GlobalState, { reducer } from './components/GlobalState';
 
-function App() {
-  const [message, setMessage] = useState('')
+const initialState = {
+  message: ''
+}
 
-  const handleChange = (e) => setMessage(e.target.value)
+function App(props) {
+  const [state, dispatch] = useReducer(reducer, initialState)
 
-  let newAlgoSenctence = algo(message)
+  let newAlgoSenctence = algo(state.message)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className='img-container'>
-          <img src={pepe} className="App-logo" alt="logo" />
-          <img src={dolan} className="App-logo" alt="logo" />
-          <img src={gooby} className="App-logo" alt="logo" />
-          <img src={trading} className="App-logo" alt="logo" />
-        </div>
-        <h1>
-          Enter something to algo
-        </h1>
-        <div className='input-div'>
-          <img src={hasbulla} className="hasbulla" alt="hasbulla" />
-          <input
-            type="text"
-            id="message"
-            name="message"
-            onChange={handleChange}
-            value={message}
-          />
-        </div>
-        <div className='ouput-div'>
-          {newAlgoSenctence
-            ? (
-              <>
-                <h3 className='output'>{newAlgoSenctence}</h3>
-                <button
-                  className='algo-btn'
-                  onClick={() => { navigator.clipboard.writeText(newAlgoSenctence) }}
-                >
-                  Copy
-                </button>
-              </>
-            )
-            : (
-              <>
-                <h3 className='output'>Размени буквите</h3>
-                <button
-                  className='btn-invisible '
-                >
-                </button>
-              </>
-            )}
-        </div>
-      </header>
-    </div>
+    <GlobalState initialState={state} dispatch={dispatch} >
+      <div className="App">
+        <header className="App-header">
+          <SpinningImages />
+          <TextInput />
+          <OutputAlgo newAlgoSenctence={newAlgoSenctence} />
+        </header>
+      </div>
+    </GlobalState>
   );
 }
 
