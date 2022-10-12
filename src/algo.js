@@ -96,10 +96,9 @@ function checkAndMaybeMakeUpperCase(currentWord, currentLetters, nextWord, nextL
 
 function selectLettersToSwitch(word) {
     let lettersToSwitch = ''
-    let wordArray = word.split('');
 
-    for (let i = 0; i < wordArray.length; i++) {
-        const letter = wordArray[i];
+    for (let i = 0; i < word.length; i++) {
+        const letter = word[i];
 
         if (checkIfLetterIsVowel(letter)) {
             break
@@ -123,7 +122,7 @@ export default algo;
 // algo("трябва да го прави върху цялото изречение") // прябва да го трави църху вялото изречение
 // algo("първи клас") // клърви пас
 // algo("хапни си пудинг")
-// algo("Хайде да ми ядеш Пишката")
+algo("Хайде да ми ядеш Пишката")
 // algo("пръднах Мощно")
 // algo("Стана ми кура")
 // // console.log("---------")
